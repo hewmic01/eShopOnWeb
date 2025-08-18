@@ -37,7 +37,7 @@ jobs:
         zip -r ../app.zip .
 
     #anzeigen dir 
-    - name: website upload: Zeige Inhalt von ${{env.DOTNET_ROOT}}
+    - name: website upload:
         run: ls -lah ${{env.DOTNET_ROOT}}
     # upload the published website code artifacts
     - name: Upload artifact for deployment job: published website code artifacts
