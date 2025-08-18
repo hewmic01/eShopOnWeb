@@ -7,7 +7,7 @@ on: [push, workflow_dispatch]
 env:
   RESOURCE-GROUP: az2006-rg
   LOCATION: westeurope
-  TEMPLATE_FILE: No changes
+  TEMPLATE_FILE: template
   SUBSCRIPTION-ID: 16ae38ac-184f-4efd-88e4-ecb3b78c9f3b #hew mic gmx main
   WEBAPP-NAME: eshoponweb-webapp-hewaMi1
 
@@ -47,9 +47,9 @@ jobs:
         path: ${{env.DOTNET_ROOT}}/app.zip
 
     - name: Zeige bicep template as artifacts
-        run: ls -lah $TEMPLATE_FILE
+      run: ls -lah $TEMPLATE_FILE
     # upload the bicep template as artifacts for next job
-    - name: Upload artifact for deployment job: bicep template
+    - name: Upload artifact for deployment job bicep template
       uses: actions/upload-artifact@v4
       with:
         name: bicep-template
