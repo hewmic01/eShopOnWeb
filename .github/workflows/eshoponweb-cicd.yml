@@ -7,7 +7,7 @@ on: [push, workflow_dispatch]
 env:
   RESOURCE-GROUP: az2006-rg
   LOCATION: westeurope
-  TEMPLATE_FILE: template
+  TEMPLATE_FILE: No changes
   SUBSCRIPTION-ID: 16ae38ac-184f-4efd-88e4-ecb3b78c9f3b #hew mic gmx main
   WEBAPP-NAME: eshoponweb-webapp-hewaMi1
 
