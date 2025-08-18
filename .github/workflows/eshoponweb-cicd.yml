@@ -35,15 +35,21 @@ jobs:
         dotnet publish ./src/Web/Web.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
         cd ${{env.DOTNET_ROOT}}/myapp
         zip -r ../app.zip .
+
+    #anzeigen dir 
+    - name: website upload: Zeige Inhalt von ${{env.DOTNET_ROOT}}
+        run: ls -lah ${{env.DOTNET_ROOT}}
     # upload the published website code artifacts
-    - name: Upload artifact for deployment job
+    - name: Upload artifact for deployment job: published website code artifacts
       uses: actions/upload-artifact@v4
       with:
         name: .net-app
         path: ${{env.DOTNET_ROOT}}/app.zip
-        
+
+    - name: Zeige bicep template as artifacts
+        run: ls -lah $(dirname "${{ env.TEMPLATE-FILE }}")
     # upload the bicep template as artifacts for next job
-    - name: Upload artifact for deployment job
+    - name: Upload artifact for deployment job: bicep template
       uses: actions/upload-artifact@v4
       with:
         name: bicep-template
